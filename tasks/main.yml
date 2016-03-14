@@ -1,0 +1,21 @@
+---
+- name: ensure packages are installed
+  package:
+    name: cockpit
+
+- name: ensure socket is configured
+  template:
+    src: cockpit.socket.j2
+    dest: /etc/systemd/system/cockpit.socket
+
+- name: ensure service is running
+  service:
+    name: cockpit
+    enabled: yes
+    state: running
+
+- name: ensure nginx vhost is configured
+  template:
+    src: nginx_vhost.conf.j2
+    dest: /etc/nginx/conf.d/vhost_cockpit.conf
+  notify: reload nginx
