@@ -1,7 +1,7 @@
 ---
 - hosts: all
   pre_tasks:
-    - name: ensuare nginx is installed
+    - name: ensure nginx is installed
       package:
         name: nginx
     - name: ensure nginx service is running
@@ -10,4 +10,4 @@
         enabled: yes
         state: running
   roles:
-    - ansible-role-cockpit
+    - vagrant

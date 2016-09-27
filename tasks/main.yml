@@ -1,7 +1,10 @@
 ---
 - name: ensure packages are installed
   package:
-    name: cockpit
+    name: "{{ item }}"
+  with_items:
+    - cockpit
+    - python-netaddr
 
 - name: ensure socket is configured
   template:
