@@ -15,7 +15,7 @@
   service:
     name: cockpit
     enabled: yes
-    state: running
+    state: started
 
 - name: ensure nginx vhost is configured
   template:
